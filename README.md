@@ -3,7 +3,9 @@
 JupyterLab Desktop is the cross-platform desktop application for [JupyterLab](https://github.com/jupyterlab/jupyterlab). It is the quickest and easiest way to get started with Jupyter notebooks on your personal computer, with the flexibility for advanced use cases.
 
 ![JupyterLab Desktop](media/jupyterlab-desktop.png)
-
+```bash
+conda install -c conda-forge ipympl
+```
 ## Installation
 
 If you have an existing JupyterLab Desktop installation, please uninstall it first by following the [uninstall instructions](user-guide.md#uninstalling-jupyterlab-desktop).
