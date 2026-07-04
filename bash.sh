@@ -1,3 +1,4 @@
+jlab --python-path /Users/username/custom_env/bin/python ../notebooks/test.ipynb
 mkdir -p src/manager src/providers src/ai
 
 touch src/index.ts
