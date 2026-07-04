@@ -77,6 +77,11 @@ Previously opened sessions are stored as part of application data and they are l
   - `jlab https://example.org/lab?token=abcde`
 
 See [CLI documentation](cli.md) for more CLI commands and options.
+# JupyterLab Desktop
+
+Install from Snapcraft:
+
+[![Get it from Snap Store](https://snapcraft.io/en/light/install.svg)](https://snapcraft.io/jupyterlab-desktop)
 
 ### JupyterLab Extension support
 
