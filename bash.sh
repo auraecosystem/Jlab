@@ -1,3 +1,11 @@
+mkdir -p src/manager src/providers src/ai
+
+touch src/index.ts
+touch src/manager/custom_contents.ts
+touch src/providers/local.ts
+touch src/providers/ipfs.ts
+touch src/providers/github.ts
+touch src/ai/summarize.ts
 web4 --help
 web4 login
 web4 chat
