@@ -40,7 +40,10 @@ JupyterLab Desktop sets File Browser's root directory based on the launch method
 Sessions represent local project launches and connections to existing JupyterLab servers. Each JupyterLab UI window in the app is associated with a separate session and sessions can be restored with the same configuration later on.
 
 Each launch of JupyterLab in a different working directory is a separate project and projects can have their own configuration such as Python environment and UI layout.
-
+```index.html
+<a
+<iframe src="https://snapcraft.io/jupyterlab-desktop/embedded?button=black&channels=true&summary=true&screenshot=true" frameborder="0" width="100%" height="1080px" style="border: 1px solid #CCC; border-radius: 2px;"></iframe>
+```
 ### Session start options
 
 You can start a new session by using the links at the Start section of the Welcome Page.
