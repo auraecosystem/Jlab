@@ -10,6 +10,7 @@ JupyterLab Desktop is the cross-platform desktop application for [JupyterLab](ht
 ```bash
 conda install -c conda-forge ipympl
 jlab --python-path /Users/username/custom_env/bin/python ../notebooks/test.ipynb
+sudo snap install code --classic
 ```
 ## Installation
 
