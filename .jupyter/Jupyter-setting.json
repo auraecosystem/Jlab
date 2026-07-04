@@ -1,0 +1,9 @@
+{
+  "pythonPath" : "/opt/miniconda/env/bin/python",
+  "serverArgs": "--GatewayClient.url=\"https://example.org:8888\"",
+  "overrideDefaultServerArgs": true,
+  "serverEnvVars": {
+    "PYTHONPATH": "/opt/dev/pythonmodule",
+    "SERVICE_API": "https://service.example.org:9999/api"
+  }
+}
