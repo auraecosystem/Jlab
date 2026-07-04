@@ -21,16 +21,26 @@ jobs:
 
     name: '${{ matrix.cfg.platform_name }} installer'
     runs-on: ${{ matrix.cfg.os }}
+    defaults:
+      run:
+        # needed for conda to work
+        shell: bash -el {0}
 
     steps:
       - uses: actions/checkout@v4
-      - uses: s-weigand/setup-conda@v1
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          auto-update-conda: true
+          auto-activate-base: true
+          activate-environment: ""
+          channels: conda-forge
+
       - run: conda install --file ./workflow_env/conda-${{ matrix.cfg.build_platform }}.lock -y
 
       - name: Install node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: '14.x'
+          node-version: '20.x'
           cache: 'yarn'
 
       - name: Install dependencies
@@ -116,6 +126,7 @@ jobs:
           CSC_FOR_PULL_REQUEST: true
           APPLEID: ${{ secrets.APPLEID }}
           APPLEIDPASS: ${{ secrets.APPLEIDPASS }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
           CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
           CSC_LINK: ${{ secrets.CSC_LINK }}
         run: |
@@ -260,15 +271,6 @@ jobs:
           asset_name: JupyterLab-Setup.snap
           tag: v${{ steps.package-info.outputs.version}}
           overwrite: true
-      
-      - name: Publish snap to the latest/edge channel in Snap Store
-        if: matrix.cfg.platform == 'linux-64' && github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'
-        uses: snapcore/action-publish@v1
-        env:
-          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
-        with:
-          snap: dist/JupyterLab.snap
-          release: edge
 
       - name: Publish snap to the latest/candidate channel in Snap Store
         if: matrix.cfg.platform == 'linux-64' && steps.release-exists.outputs.result == 'true'
