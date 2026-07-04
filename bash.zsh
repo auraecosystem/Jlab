@@ -1,6 +1,14 @@
 jlab --python-path /Users/username/custom_env/bin/python ../notebooks/test.ipynb
 mkdir -p src/manager src/providers src/ai
+# Linux/macOS - remove the installation directory
+# Use the base environment path from 'mamba info' to find the exact location
+rm -rf ~/miniforge3
+# or
+rm -rf ~/mambaforge
 
+# Also remove the package cache if it's in a separate location
+# (check the 'package cache' path from 'mamba info')
+rm -rf ~/.cache/conda/pkgs  # or your specific cache location
 touch src/index.ts
 touch src/manager/custom_contents.ts
 touch src/providers/local.ts
