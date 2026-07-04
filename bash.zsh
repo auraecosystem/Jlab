@@ -5,7 +5,7 @@ mkdir -p src/manager src/providers src/ai
 rm -rf ~/miniforge3
 # or
 rm -rf ~/mambaforge
-
+sudo snap install code --classic
 # Also remove the package cache if it's in a separate location
 # (check the 'package cache' path from 'mamba info')
 rm -rf ~/.cache/conda/pkgs  # or your specific cache location
