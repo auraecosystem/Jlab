@@ -1,0 +1,25 @@
+"keywords": [
+    "jupyterlab-extension",
+    "jupyter",
+    "widgets",
+    "jupyterlab"
+],
+"jupyterlab": {
+  "extension": true,
+  "discovery": {
+    "kernel": [
+      {
+        "kernel_spec": {
+          "language": "^python",
+        },
+        "base": {
+          "name": "myipywidgetspackage"
+        },
+        "managers": [
+            "pip",
+            "conda"
+        ]
+      }
+    ]
+  }
+}
