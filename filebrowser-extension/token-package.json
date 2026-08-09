@@ -1,0 +1,7 @@
+"jupyterlab": {
+  "sharedPackages": {
+    "token-package": {
+      "singleton": true
+     }
+   }
+ }
