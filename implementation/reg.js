@@ -1,9 +1,26 @@
+
 import {
   Contents,
   ContentsManager,
   RestContentProvider
 } from '@jupyterlab/services';
+import { Drive, ServerConnection } from '@jupyterlab/services';
 
+const customDrivePlugin: JupyterFrontEndPlugin<void> = {
+  id: 'my-extension:custom-drive',
+  autoStart: true,
+  activate: (app: JupyterFrontEnd) => {
+    const myDrive = new Drive({
+      apiEndpoint: 'api/contents',
+      name: 'MyNetworkDrive',
+      serverSettings: {
+        baseUrl: 'https://your-jupyter-server.com'
+        // ...
+      } as ServerConnection.ISettings
+    });
+    app.serviceManager.contents.addDrive(myDrive);
+  }
+};
 interface IMyContentChunk {
   /** URL allowing to fetch the content chunk */
   url: string;
@@ -60,3 +77,52 @@ const customContentProviderPlugin: JupyterFrontEndPlugin<void> = {
     registry.register('my-custom-provider', customContentProvider);
   }
 };
+class ExampleWidgetFactory extends ABCWidgetFactory<
+  ExampleDocWidget,
+  ExampleDocModel
+> {
+  protected createNewWidget(
+    context: DocumentRegistry.IContext<ExampleDocModel>
+  ): ExampleDocWidget {
+    return new ExampleDocWidget({
+      context,
+      content: new ExamplePanel(context)
+    });
+  }
+}
+
+const widgetFactoryPlugin: JupyterFrontEndPlugin<void> = {
+  id: 'my-extension:custom-widget-factory',
+  autoStart: true,
+  activate: (app: JupyterFrontEnd) => {
+    const widgetFactory = new ExampleWidgetFactory({
+      name: FACTORY,
+      modelName: 'lmlm',
+      fileTypes: ['example'],
+      defaultFor: ['example'],
+      // Instructs the document registry to use the custom provider
+      // for context of widgets created with `ExampleWidgetFactory`.
+      contentProviderId: 'qubuhub'
+    });
+    app.docRegistry.addWidgetFactory(widgetFactory);
+  }
+};
+class ExampleDocModel implements DocumentRegistry.IModel {
+  // ...
+
+  fromJSON(chunks: IMyContentChunk[]): void {
+    this.sharedModel.transact(() => {
+      let i = 0;
+      for (const chunk of chunks) {
+        const chunk = fetch(chunk.url);
+        this.sharedModel.set(`chunk-${i}`, chunk);
+        i += 1;
+      }
+    });
+  }
+
+  fromString(data: string): void {
+    const chunks = JSON.parse(data) as IMyContentChunk[];
+    return this.fromJSON(chunks);
+  }
+}
