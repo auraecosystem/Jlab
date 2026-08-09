@@ -1,5 +1,8 @@
 # JupyterLab Desktop
 
+[![JupyterLab Desktop Preview](https://assets.ubuntu.com/v1/some-image-url.png)](https://snapcraft.io/jupyterlab-desktop)
+
+
 > [!CAUTION]
 > As of August 2025, JupyterLab Desktop is not actively maintained and does not receive security bug fixes. Using JupyterLab Desktop for sensitive data, or with untrusted notebooks/extensions is not recommended.
 > If you would like to contribute and help with maintenance, please get in touch by leaving a comment on the [issue discussing project archival](https://github.com/jupyterlab/jupyterlab-desktop/issues/890).
