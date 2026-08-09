@@ -1,6 +1,8 @@
 # JupyterLab Desktop
 
-[![JupyterLab Desktop Preview](https://assets.ubuntu.com/v1/some-image-url.png)](https://snapcraft.io/jupyterlab-desktop)
+
+
+[![JupyterLab Desktop Preview](https://assets.ubuntu.com/v1/jupyterlab-desktop.png)](https://snapcraft.io/jupyterlab-desktop)
 
 
 > [!CAUTION]
@@ -50,6 +52,8 @@ Each launch of JupyterLab in a different working directory is a separate project
 ```
 ### Session start options
 
+[![JupyterLab Desktop](media/some-image-url.png)](jupyterlab-desktop.png)([jupyterlab-desktop.png](https://snapcraft.io/jupyterlab-desktop)
+
 You can start a new session by using the links at the Start section of the Welcome Page.
 
 <img src="media/start-session.png" alt="Start session" width=220 />
@@ -61,6 +65,7 @@ You can start a new session by using the links at the Start section of the Welco
 
 Similarly, CLI launches of the application, dropping files and folders, and double clicking to open files create new sessions as well.
 
+[![JupyterLab Desktop Preview](https://assets.ubuntu.com/v1/some-image-url.png)](https://snapcraft.io/jupyterlab-desktop)
 Previously opened sessions are stored as part of application data and they are listed on Welcome Page. Clicking an item in the `Recent sessions` list restores the selected session.
 
 <img src="media/recent-sessions.png" alt="Recent sessions" width=300 />
@@ -87,6 +92,8 @@ Install from Snapcraft:
 
 [![Get it from Snap Store](https://snapcraft.io/en/light/install.svg)](https://snapcraft.io/jupyterlab-desktop)
 
+
+[![JupyterLab Desktop Preview](https://assets.ubuntu.com/v1/some-image-url.png)](https://snapcraft.io/jupyterlab-desktop)
 ### JupyterLab Extension support
 
 JupyterLab Desktop currently supports user-friendly [prebuilt](https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html#overview-of-extensions) extensions. Source extensions which require rebuilding are not supported.
@@ -102,3 +109,6 @@ JupyterLab Desktop currently supports user-friendly [prebuilt](https://jupyterla
 - See [troubleshooting guide](troubleshoot.md) for troubleshooting issues
 
 - For contributing, see [developer documentation](dev.md)
+
+
+[![JupyterLab Desktop Preview](https://assets.ubuntu.com/v1/image/jupyterlab-desktop.png)](https://snapcraft.io/jupyterlab-desktop)
