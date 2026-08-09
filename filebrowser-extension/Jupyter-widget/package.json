@@ -15,6 +15,9 @@
         "base": {
           "name": "myipywidgetspackage"
         },
+        "jupyterlab": {
+         "outputDir": "mypackage/labextension"
+        },
         "managers": [
             "pip",
             "conda"
